@@ -10,8 +10,19 @@ int main(int argc, char** argv) {
         cerr << "provide one file with task" << endl;
         return EXIT_FAILURE;
     }
-    ifstream task(argv[1]);
-    Game g(task);
-    cout << g;
+
+    try {
+        ifstream task(argv[1]);
+        Game g(task);
+
+        if (!g.solve()) cout << "not ";
+        cout << "solved:" << '\n';
+        cout << g;
+
+    } catch (exception &e) {
+        cerr << e.what() << endl;
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }
