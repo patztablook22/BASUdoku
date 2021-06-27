@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20.3)
 
 project(BASUdoku)
+set (CMAKE_CXX_STANDARD 11)
 
 add_executable(
   BASUdoku
@@ -8,4 +9,5 @@ add_executable(
   constructs.cpp
   readings.cpp
   solving.cpp
+  converts.cpp
 )
