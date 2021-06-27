@@ -3,8 +3,8 @@
 using namespace std;
 
 Game::Game(ifstream& is) {
-    Field f;
-    f.push_back(vector<uint8_t>());
+    Field f{ {} };
+
     while (is) {
         char buff;
         is.get(buff);
@@ -22,6 +22,7 @@ Game::Game(ifstream& is) {
             );
         }
     }
+
     if (f.back().empty())
         f.pop_back();
     init(f);
@@ -40,7 +41,7 @@ void Game::init(Field& f) {
             throw invalid_argument("Must be a square");
         for (uint8_t i: v)
             if (i > size)
-                throw invalid_argument("Number exceeds BASE");
+                throw invalid_argument("Number in input exceeds BASE");
     }
     
     // must be square of an integer
