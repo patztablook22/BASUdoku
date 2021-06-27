@@ -28,6 +28,10 @@ bool Game::solve_next(int row, int col) {
         col = 0;
         row++;
     }
+    
+    if (row >= size())
+        return true;
+
     return solve_from(row, col);
 }
 
@@ -41,7 +45,7 @@ bool Game::check(int row, int col) {
         
     // unique within the col
     for (int i = 0; i < size(); i++)
-        if (field[col][i] == val && i != row)
+        if (field[i][col] == val && i != row)
             return false;
     
     // unique within the cell
