@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
         cout << "solved:" << '\n';
         cout << g;
 
-    } catch (exception &e) {
+    } catch (exception& e) {
         cerr << e.what() << endl;
         return EXIT_FAILURE;
     }
